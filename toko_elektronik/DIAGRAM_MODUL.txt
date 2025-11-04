@@ -1,0 +1,225 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║              DIAGRAM HUBUNGAN ANTAR MODUL                                ║
+║              Toko Elektronik Mini v2.0                                   ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+
+                            ┌─────────────────┐
+                            │    main.py      │
+                            │  (Entry Point)  │
+                            └────────┬────────┘
+                                     │
+                    ┌────────────────┼────────────────┐
+                    │                │                │
+                    ▼                ▼                ▼
+            ┌──────────────┐  ┌──────────┐   ┌──────────────┐
+            │   auth.py    │  │ menu.py  │   │   models.py  │
+            │              │  │          │   │              │
+            │ - login()    │  │ - menu_  │   │ - akun       │
+            │ - register() │  │   admin()│   │ - barang     │
+            └──────┬───────┘  │ - menu_  │   │ - total_     │
+                   │          │   user() │   │   penjualan  │
+                   │          └────┬─────┘   └──────┬───────┘
+                   │               │                 │
+                   │     ┌─────────┼─────────┐      │
+                   │     │         │         │      │
+                   │     ▼         ▼         ▼      │
+                   │  ┌──────────────────┐  ┌───────┴────────┐
+                   │  │  inventory.py    │  │ transaction.py │
+                   │  │                  │  │                │
+                   │  │ - read_barang()  │  │ - beli_       │
+                   │  │ - create_barang()│  │   barang()    │
+                   │  │ - update_barang()│  │ - proses_beli()│
+                   │  │ - delete_barang()│  └────────┬───────┘
+                   │  │ - tampilkan_     │           │
+                   │  │   statistik()    │           │
+                   │  └─────────┬────────┘           │
+                   │            │                    │
+                   └────────────┼────────────────────┘
+                                │
+                                ▼
+                        ┌───────────────┐
+                        │   utils.py    │
+                        │               │
+                        │ - clear()     │
+                        │ - hitung_     │
+                        │   total()     │
+                        │ - format_     │
+                        │   rupiah()    │
+                        │ - log_        │
+                        │   aktivitas() │
+                        │ - tampilkan_  │
+                        │   log()       │
+                        │ - create_     │
+                        │   barang_     │
+                        │   table()     │
+                        └───────────────┘
+                                │
+                                ▼
+                        ┌───────────────┐
+                        │ PrettyTable   │
+                        │  (Library)    │
+                        └───────────────┘
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    DEPENDENCY FLOW                                       ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Layer 1 (Data Layer):
+    models.py  ──────────────────────┐
+                                      │
+Layer 2 (Utility Layer):              │
+    utils.py  ────────────────────────┤
+    PrettyTable                       │
+                                      │
+Layer 3 (Business Logic):             │
+    auth.py    ──────────────────────►│
+    inventory.py  ────────────────────┤
+    transaction.py  ──────────────────┤
+                                      │
+Layer 4 (Presentation Layer):         │
+    menu.py  ─────────────────────────┤
+                                      │
+Layer 5 (Application Layer):          │
+    main.py  ◄────────────────────────┘
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    IMPORT DEPENDENCIES                                   ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+main.py:
+    ├── from auth import login, register
+    ├── from menu import menu_admin, menu_user, tampilkan_menu_utama
+    └── from utils import clear
+
+menu.py:
+    ├── from prettytable import PrettyTable
+    ├── from utils import clear, tampilkan_log
+    ├── from inventory import read_barang, create_barang, update_barang,
+    │                        delete_barang, tampilkan_statistik
+    └── from transaction import proses_beli
+
+auth.py:
+    ├── from models import akun
+    └── from utils import clear, log_aktivitas
+
+inventory.py:
+    ├── from prettytable import PrettyTable
+    ├── from models import barang
+    └── from utils import clear, log_aktivitas, create_barang_table
+
+transaction.py:
+    ├── import models
+    ├── from inventory import read_barang
+    └── from utils import hitung_total, log_aktivitas
+
+utils.py:
+    ├── import os
+    └── from prettytable import PrettyTable
+
+models.py:
+    └── (No dependencies - pure data)
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    DATA FLOW DIAGRAM                                     ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+User Input
+    │
+    ▼
+┌─────────────────────────────────────────────────────────────┐
+│                         main.py                             │
+│                     (User Interface)                        │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        ▼                ▼                ▼
+    [Login]         [Register]        [Exit]
+        │                │
+        ▼                ▼
+    auth.py ──────► models.akun ◄───── auth.py
+        │                                   │
+        ▼                                   ▼
+  [Role Check]                        [Create Account]
+        │                                   │
+   ┌────┴─────┐                            │
+   │          │                             │
+   ▼          ▼                             ▼
+[Admin]    [User]                      utils.log_aktivitas()
+   │          │                             │
+   │          │                             ▼
+   │          │                         log.txt
+   │          │
+   ▼          ▼
+menu.py    menu.py
+   │          │
+   ├──────────┼────────────┐
+   │          │            │
+   ▼          ▼            ▼
+inventory transaction  utils
+   │          │            │
+   └──────────┴────────────┘
+              │
+              ▼
+        models.barang
+              │
+              ▼
+      ┌───────────────┐
+      │ PrettyTable   │
+      │   Display     │
+      └───────┬───────┘
+              │
+              ▼
+         [Output]
+              │
+              ▼
+           User
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                  MODULE RESPONSIBILITY MATRIX                            ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Module          │ Purpose                    │ Dependencies
+─────────────────┼────────────────────────────┼──────────────────────────
+models.py       │ Store data (CRUD)          │ None
+utils.py        │ Helper functions           │ os, prettytable
+auth.py         │ User authentication        │ models, utils
+inventory.py    │ Product management         │ models, utils, prettytable
+transaction.py  │ Purchase transactions      │ models, utils, inventory
+menu.py         │ Display menus              │ utils, inventory, transaction
+main.py         │ Application entry point    │ auth, menu, utils
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                         EXECUTION FLOW                                   ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+1. User runs: python main.py
+2. main.py imports required modules
+3. Display main menu (menu.py)
+4. User selects option:
+
+   Option 1 (Login):
+   ├─► auth.login()
+   ├─► Check credentials (models.akun)
+   ├─► If admin → menu.menu_admin()
+   │   ├─► inventory functions
+   │   └─► utils functions
+   └─► If user → menu.menu_user()
+       ├─► inventory.read_barang()
+       └─► transaction.proses_beli()
+
+   Option 2 (Register):
+   └─► auth.register()
+       └─► Add to models.akun
+
+   Option 3 (Exit):
+   └─► Terminate program
+
+5. All actions logged to log.txt via utils.log_aktivitas()
+6. All tables displayed using PrettyTable

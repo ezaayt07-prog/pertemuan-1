@@ -1,0 +1,121 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║         STRUKTUR PROJECT TOKO ELEKTRONIK MINI v2.0               ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+toko_elektronik/
+│
+├── main.py                 # Program Utama (Entry Point)
+│   └── Fungsi: Menjalankan aplikasi utama
+│
+├── models.py               # Data Models
+│   ├── akun                # Dictionary akun pengguna
+│   ├── barang              # Dictionary barang elektronik
+│   └── total_penjualan     # Total penjualan toko
+│
+├── auth.py                 # Modul Autentikasi
+│   ├── login()             # Fungsi login pengguna
+│   └── register()          # Fungsi registrasi akun baru
+│
+├── inventory.py            # Modul Manajemen Inventori
+│   ├── read_barang()       # Menampilkan daftar barang
+│   ├── create_barang()     # Menambah barang baru
+│   ├── update_barang()     # Mengubah data barang
+│   ├── delete_barang()     # Menghapus barang
+│   └── tampilkan_statistik() # Menampilkan statistik toko
+│
+├── transaction.py          # Modul Transaksi
+│   ├── beli_barang()       # Proses pembelian barang
+│   └── proses_beli()       # Interface pembelian untuk user
+│
+├── menu.py                 # Modul Menu Aplikasi
+│   ├── menu_admin()        # Menu untuk admin
+│   ├── menu_user()         # Menu untuk user
+│   ├── tampilkan_menu_admin()    # Display menu admin
+│   ├── tampilkan_menu_user()     # Display menu user
+│   └── tampilkan_menu_utama()    # Display menu utama
+│
+├── utils.py                # Modul Utilitas
+│   ├── clear()             # Membersihkan layar terminal
+│   ├── hitung_total()      # Menghitung total harga
+│   ├── format_rupiah()     # Format angka ke rupiah
+│   ├── log_aktivitas()     # Mencatat aktivitas ke file
+│   ├── tampilkan_log()     # Menampilkan log aktivitas
+│   └── create_barang_table() # Membuat tabel barang (PrettyTable)
+│
+├── requirements.txt        # Dependencies (prettytable)
+├── __init__.py            # Package initializer
+└── README.md              # Dokumentasi lengkap
+
+
+╔═══════════════════════════════════════════════════════════════════╗
+║                    ALUR PROGRAM                                   ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+1. main.py
+   │
+   ├─→ Tampilkan Menu Utama (menu.py)
+   │
+   ├─→ [1] Login (auth.py)
+   │   │
+   │   ├─→ Jika Admin → menu_admin() (menu.py)
+   │   │   ├─→ Lihat Barang (inventory.py)
+   │   │   ├─→ Tambah Barang (inventory.py)
+   │   │   ├─→ Ubah Barang (inventory.py)
+   │   │   ├─→ Hapus Barang (inventory.py)
+   │   │   ├─→ Lihat Statistik (inventory.py)
+   │   │   └─→ Lihat Log (utils.py)
+   │   │
+   │   └─→ Jika User → menu_user() (menu.py)
+   │       ├─→ Lihat Barang (inventory.py)
+   │       └─→ Beli Barang (transaction.py)
+   │
+   ├─→ [2] Register (auth.py)
+   │
+   └─→ [3] Keluar
+
+
+╔═══════════════════════════════════════════════════════════════════╗
+║              KEUNGGULAN STRUKTUR MODULAR                          ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+✓ SEPARATION OF CONCERNS
+  Setiap modul memiliki tanggung jawab yang jelas dan terfokus
+
+✓ MAINTAINABILITY
+  Mudah untuk memperbaiki bug atau menambah fitur baru
+
+✓ REUSABILITY
+  Fungsi dapat digunakan kembali di berbagai bagian program
+
+✓ TESTABILITY
+  Setiap modul dapat ditest secara independen
+
+✓ READABILITY
+  Kode lebih mudah dibaca dan dipahami
+
+✓ SCALABILITY
+  Mudah untuk menambah fitur baru tanpa mengubah kode yang ada
+
+✓ COLLABORATION
+  Beberapa developer dapat bekerja pada modul yang berbeda
+
+
+╔═══════════════════════════════════════════════════════════════════╗
+║                 PENGGUNAAN PRETTYTABLE                            ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+PrettyTable digunakan di:
+
+1. inventory.py → Menampilkan daftar barang
+2. inventory.py → Menampilkan statistik toko
+3. menu.py → Menampilkan menu admin
+4. menu.py → Menampilkan menu user
+5. menu.py → Menampilkan menu utama
+
+Contoh Output:
+┌────┬──────────────────┬──────────────┬──────┐
+│ No │   Nama Barang    │    Harga     │ Stok │
+├────┼──────────────────┼──────────────┼──────┤
+│ 1  │ Strika           │   Rp189,000  │  15  │
+│ 2  │ TV               │ Rp2,500,000  │  10  │
+└────┴──────────────────┴──────────────┴──────┘

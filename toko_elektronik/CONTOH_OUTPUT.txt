@@ -1,0 +1,246 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║               CONTOH OUTPUT PROGRAM                                      ║
+║               Toko Elektronik Mini v2.0                                  ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════
+                            MENU UTAMA
+═══════════════════════════════════════════════════════════════════════════
+
+=== SELAMAT DATANG DI TOKO ELEKTRONIK MINI ===
+
++----+----------+
+| No |   Menu   |
++----+----------+
+| 1  |  Login   |
+| 2  | Register |
+| 3  |  Keluar  |
++----+----------+
+
+Pilih menu: _
+
+
+═══════════════════════════════════════════════════════════════════════════
+                            LOGIN
+═══════════════════════════════════════════════════════════════════════════
+
+=== LOGIN TOKO ELEKTRONIK MINI ===
+Username: reza haikal
+Password: ********
+
+Login berhasil!
+Tekan Enter untuk melanjutkan...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                         MENU ADMIN
+═══════════════════════════════════════════════════════════════════════════
+
+=== MENU ADMIN ===
+
++----+----------------------+
+| No |         Menu         |
++----+----------------------+
+| 1  | Lihat Daftar Barang  |
+| 2  |    Tambah Barang     |
+| 3  |     Ubah Barang      |
+| 4  |     Hapus Barang     |
+| 5  |   Lihat Statistik    |
+| 6  | Lihat Log Aktivitas  |
+| 7  |        Logout        |
++----+----------------------+
+
+Pilih menu: _
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      DAFTAR BARANG (PrettyTable)
+═══════════════════════════════════════════════════════════════════════════
+
+=== DAFTAR BARANG TOKO ELEKTRONIK MINI ===
+
++----+---------------------+---------------+------+
+| No |    Nama Barang      |     Harga     | Stok |
++----+---------------------+---------------+------+
+| 1  | Strika              |    Rp189,000  |  15  |
+| 2  | Tv                  |  Rp2,500,000  |  10  |
+| 3  | Laptop              |  Rp8,500,000  |  7   |
+| 4  | Kipas Angin         |    Rp285,000  |  10  |
+| 5  | Ac                  |  Rp3,500,000  |  5   |
+| 6  | Mesin Cuci          |  Rp2,750,000  |  8   |
+| 7  | Dispenser           |    Rp450,000  |  12  |
+| 8  | Rice Cooker         |    Rp300,000  |  20  |
++----+---------------------+---------------+------+
+
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      TAMBAH BARANG BARU
+═══════════════════════════════════════════════════════════════════════════
+
+=== TAMBAH BARANG BARU ===
+Nama Barang: kulkas
+Harga Barang: 4500000
+Stok Barang: 6
+
+Barang berhasil ditambahkan!
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      UBAH BARANG
+═══════════════════════════════════════════════════════════════════════════
+
+=== DAFTAR BARANG TOKO ELEKTRONIK MINI ===
+
++----+---------------------+---------------+------+
+| No |    Nama Barang      |     Harga     | Stok |
++----+---------------------+---------------+------+
+| 1  | Strika              |    Rp189,000  |  15  |
+| 2  | Tv                  |  Rp2,500,000  |  10  |
+| 3  | Laptop              |  Rp8,500,000  |  7   |
++----+---------------------+---------------+------+
+
+Masukkan nomor atau nama barang yang ingin diubah: 1
+
+Mengubah 'Strika' (Harga: 189000, Stok: 15)
+Nama baru (kosong = tetap):
+Harga baru (kosong = tetap): 199000
+Stok baru (kosong = tetap): 20
+
+Barang berhasil diperbarui!
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      STATISTIK TOKO
+═══════════════════════════════════════════════════════════════════════════
+
+=== STATISTIK TOKO ===
+
++-------------------------+------------------+
+|       Keterangan        |       Nilai      |
++-------------------------+------------------+
+| Total Barang            |      87 unit     |
+| Total Nilai Inventaris  | Rp45,689,000     |
+| Total Penjualan         |  Rp2,689,000     |
++-------------------------+------------------+
+
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                         MENU USER
+═══════════════════════════════════════════════════════════════════════════
+
+=== MENU PENGGUNA ===
+
++----+---------------------+
+| No |        Menu         |
++----+---------------------+
+| 1  | Lihat Daftar Barang |
+| 2  |    Beli Barang      |
+| 3  |       Logout        |
++----+---------------------+
+
+Silahkan pilih menu: _
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      BELI BARANG
+═══════════════════════════════════════════════════════════════════════════
+
+=== DAFTAR BARANG TOKO ELEKTRONIK MINI ===
+
++----+---------------------+---------------+------+
+| No |    Nama Barang      |     Harga     | Stok |
++----+---------------------+---------------+------+
+| 1  | Strika              |    Rp189,000  |  15  |
+| 2  | Tv                  |  Rp2,500,000  |  10  |
+| 3  | Laptop              |  Rp8,500,000  |  7   |
+| 4  | Kipas Angin         |    Rp285,000  |  10  |
+| 5  | Ac                  |  Rp3,500,000  |  5   |
+| 6  | Mesin Cuci          |  Rp2,750,000  |  8   |
+| 7  | Dispenser           |    Rp450,000  |  12  |
+| 8  | Rice Cooker         |    Rp300,000  |  20  |
++----+---------------------+---------------+------+
+
+Masukkan nomor atau nama barang yang ingin dibeli: 3
+Jumlah: 2
+
+Pembelian berhasil! Total: Rp17,000,000
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      LOG AKTIVITAS
+═══════════════════════════════════════════════════════════════════════════
+
+=== LOG AKTIVITAS ===
+Login berhasil: reza haikal
+Barang ditambah: kulkas
+Barang diubah: strika -> strika
+Login berhasil: pengguna
+Pembelian: laptop x2, Total: Rp17000000
+Akun baru dibuat: testuser
+
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      REGISTER AKUN
+═══════════════════════════════════════════════════════════════════════════
+
+=== REGISTER AKUN BARU ===
+Masukkan username baru: johndoe
+Masukkan password baru: password123
+
+Akun berhasil dibuat!
+Tekan Enter untuk kembali...
+
+
+═══════════════════════════════════════════════════════════════════════════
+                      KELUAR PROGRAM
+═══════════════════════════════════════════════════════════════════════════
+
+Terima kasih telah menggunakan program ini!
+Sampai jumpa di toko kami!
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                   PERBANDINGAN OUTPUT                                    ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+SEBELUM (Tanpa PrettyTable):
+─────────────────────────────────────────────────────────────────────────
+=== DAFTAR BARANG TOKO ELEKTRONIK MINI ===
+No  Nama Barang          Harga        Stok
+--------------------------------------------------
+1   strika               189000       15
+2   tv                   2500000      10
+--------------------------------------------------
+─────────────────────────────────────────────────────────────────────────
+
+
+SESUDAH (Dengan PrettyTable):
+─────────────────────────────────────────────────────────────────────────
+=== DAFTAR BARANG TOKO ELEKTRONIK MINI ===
+
++----+---------------------+---------------+------+
+| No |    Nama Barang      |     Harga     | Stok |
++----+---------------------+---------------+------+
+| 1  | Strika              |    Rp189,000  |  15  |
+| 2  | Tv                  |  Rp2,500,000  |  10  |
++----+---------------------+---------------+------+
+─────────────────────────────────────────────────────────────────────────
+
+
+KEUNGGULAN PRETTYTABLE:
+✓ Border yang jelas dan rapi
+✓ Alignment yang konsisten
+✓ Format Rupiah otomatis
+✓ Lebih mudah dibaca
+✓ Profesional appearance
+✓ Auto-adjust column width
